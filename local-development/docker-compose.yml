@@ -1,0 +1,12 @@
+version: "3.9"
+
+name: alzaproductapi
+services:
+  alzaproductapi-mssql:
+    image: mcr.microsoft.com/mssql/server
+    container_name: alzaproductapi-mssql
+    ports:
+      - 1444:1433
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Heslo123!!!
