@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlzaProductAPI", "AlzaProductAPI\AlzaProductAPI.csproj", "{555A8682-C4FD-4C0E-B30D-2FA315913898}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{555A8682-C4FD-4C0E-B30D-2FA315913898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{555A8682-C4FD-4C0E-B30D-2FA315913898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{555A8682-C4FD-4C0E-B30D-2FA315913898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{555A8682-C4FD-4C0E-B30D-2FA315913898}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99DB1B0B-8BFB-4BC4-B0C7-A14D236076B5}
+	EndGlobalSection
+EndGlobal
