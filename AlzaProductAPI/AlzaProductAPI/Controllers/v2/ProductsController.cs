@@ -14,6 +14,7 @@ public class ProductsController(IMediator mediator) : ControllerBase
     [MapToApiVersion("2.0")]
     [HttpGet]
     [ProducesResponseType<PaginatedList<ProductDto>>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<PaginatedList<ProductDto>>> GetProductsPaginated([FromQuery] GetPaginatedProductsQuery query)
     {
         var products = await mediator.Send(query);
