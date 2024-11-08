@@ -15,7 +15,7 @@ public class GetProductByIdQueryHandler(IRepository<Product> productRepository, 
     {
         var product = await productRepository.GetByIdAsync(request.Id);
 
-        product.Validate(request.Id);
+        product.ValidateIfNotNull(request.Id);
 
         return mapper.Map<ProductDto>(product);
     }
