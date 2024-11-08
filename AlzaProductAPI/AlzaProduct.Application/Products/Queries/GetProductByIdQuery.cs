@@ -1,7 +1,7 @@
 ﻿using AlzaProduct.Abstractions;
+using AlzaProduct.Application.Extensions;
 using AlzaProduct.Application.Products.DTOs;
 using AlzaProduct.Domain.Entities.Products;
-using AlzaProduct.Infrastructure.Exceptions;
 using AutoMapper;
 using MediatR;
 
@@ -14,15 +14,9 @@ public class GetProductByIdQueryHandler(IRepository<Product> productRepository, 
     public async Task<ProductDto> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
     {
         var product = await productRepository.GetByIdAsync(request.Id);
-        Validate(product, request.Id);
-        return mapper.Map<ProductDto>(product);
-    }
 
-    private void Validate(Product? product, string id)
-    {
-        if (product is null)
-        {
-            throw new NotFoundException($"Entity {nameof(Product)} with Id: {id} was not found");
-        }
+        product.Validate(request.Id);
+
+        return mapper.Map<ProductDto>(product);
     }
 }
