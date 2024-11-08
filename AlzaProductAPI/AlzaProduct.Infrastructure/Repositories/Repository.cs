@@ -14,33 +14,33 @@ public class Repository<T> : IRepository<T> where T : Entity
         _dbSet = context.Set<T>();
     }
 
-    public Task AddAsync(T entity)
+    public async Task AddAsync(T entity)
     {
-        throw new NotImplementedException();
+        await _dbSet.AddAsync(entity);
     }
 
     public void Delete(T entity)
     {
-        throw new NotImplementedException();
+        _dbSet.Remove(entity);
     }
 
-    public Task<IEnumerable<T>> GetAllAsync()
+    public async Task<IEnumerable<T>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await _dbSet.ToListAsync();
     }
 
-    public Task<T> GetByIdAsync(string id)
+    public async Task<T?> GetByIdAsync(string id)
     {
-        throw new NotImplementedException();
+        return await _dbSet.FindAsync(id);
     }
 
-    public Task SaveAsync()
+    public async Task SaveAsync()
     {
-        throw new NotImplementedException();
+        await _context.SaveChangesAsync();
     }
 
     public void Update(T entity)
     {
-        throw new NotImplementedException();
+        _dbSet.Update(entity);
     }
 }
