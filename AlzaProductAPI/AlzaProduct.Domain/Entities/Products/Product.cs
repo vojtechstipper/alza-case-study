@@ -6,6 +6,6 @@ public class Product : Entity
 {
     public required string Name { get; set; }
     public required string ImgUri { get; set; }
-    public double Price { get; set; }
+    public decimal Price { get; set; }
     public string? Description { get; set; }
 }

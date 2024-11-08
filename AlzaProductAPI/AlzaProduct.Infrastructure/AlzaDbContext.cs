@@ -12,5 +12,6 @@ public class AlzaDbContext(DbContextOptions options) : DbContext(options)
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AlzaDbContext).Assembly);
+        new DataSeeder(modelBuilder).Seed();
     }
 }
