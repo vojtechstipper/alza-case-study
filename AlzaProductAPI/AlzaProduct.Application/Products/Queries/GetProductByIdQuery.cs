@@ -22,7 +22,7 @@ public class GetProductByIdQueryHandler(IRepository<Product> productRepository, 
     {
         if (product is null)
         {
-            throw new NotFoundException($"Entity {typeof(Product)} with Id: {id} was not found");
+            throw new NotFoundException($"Entity {nameof(Product)} with Id: {id} was not found");
         }
     }
 }
