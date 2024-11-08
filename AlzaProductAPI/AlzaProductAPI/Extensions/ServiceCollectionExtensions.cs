@@ -2,6 +2,7 @@
 using AlzaProduct.Infrastructure;
 using AlzaProduct.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace AlzaProductAPI.Extensions;
 

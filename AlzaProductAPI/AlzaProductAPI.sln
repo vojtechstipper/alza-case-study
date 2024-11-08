@@ -5,11 +5,13 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlzaProductAPI", "AlzaProductAPI\AlzaProductAPI.csproj", "{555A8682-C4FD-4C0E-B30D-2FA315913898}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlzaProduct.Domain", "AlzaProduct.Domain\AlzaProduct.Domain.csproj", "{59D8C229-FD68-40F6-B541-8F429BD63431}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlzaProduct.Domain", "AlzaProduct.Domain\AlzaProduct.Domain.csproj", "{59D8C229-FD68-40F6-B541-8F429BD63431}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlzaProduct.Abstractions", "AlzaProduct.Abstractions\AlzaProduct.Abstractions.csproj", "{699921AC-0A0B-4111-99BC-260E5657583D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlzaProduct.Abstractions", "AlzaProduct.Abstractions\AlzaProduct.Abstractions.csproj", "{699921AC-0A0B-4111-99BC-260E5657583D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlzaProduct.Infrastructure", "AlzaProduct.Infrastructure\AlzaProduct.Infrastructure.csproj", "{12A90285-9CFA-49EC-80CD-16C9C966B873}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlzaProduct.Infrastructure", "AlzaProduct.Infrastructure\AlzaProduct.Infrastructure.csproj", "{12A90285-9CFA-49EC-80CD-16C9C966B873}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlzaProduct.Application", "AlzaProduct.Application\AlzaProduct.Application.csproj", "{B95D4D67-4274-4074-B17F-0803371D2F02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{12A90285-9CFA-49EC-80CD-16C9C966B873}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12A90285-9CFA-49EC-80CD-16C9C966B873}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12A90285-9CFA-49EC-80CD-16C9C966B873}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B95D4D67-4274-4074-B17F-0803371D2F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B95D4D67-4274-4074-B17F-0803371D2F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B95D4D67-4274-4074-B17F-0803371D2F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B95D4D67-4274-4074-B17F-0803371D2F02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
