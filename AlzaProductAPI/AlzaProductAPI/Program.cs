@@ -22,5 +22,4 @@ app.UseExceptionHandler();
 app.MigrateDatabase();
 app.MapControllers();
 
-
 app.Run();

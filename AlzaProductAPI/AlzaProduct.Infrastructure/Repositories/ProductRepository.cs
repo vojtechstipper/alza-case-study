@@ -3,12 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AlzaProduct.Infrastructure.Repositories;
 
-public class ProductRepository : Repository<Product>, IProductRepository
+public class ProductRepository(AlzaDbContext context) : Repository<Product>(context), IProductRepository
 {
-    public ProductRepository(AlzaDbContext context) : base(context)
-    {
-    }
-
     public async Task<int> CountAsync()
     {
         return await _context.Products.CountAsync();
