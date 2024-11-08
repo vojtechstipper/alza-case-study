@@ -1,9 +1,12 @@
 using AlzaProductAPI.Extensions;
 using AlzaProduct.Application;
+using AlzaProductAPI.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddExceptionHandler<ExceptionHandler>();
+builder.Services.AddProblemDetails();
 builder.Services.AddRepositories();
 builder.Services.AddApplicationServices();
 builder.Services.AddControllers();
@@ -14,7 +17,7 @@ builder.Services.ConfigureSwaggerGen(options =>
 });
 
 var app = builder.Build();
-
+app.UseExceptionHandler();
 app.MigrateDatabase();
 app.MapControllers();
 
