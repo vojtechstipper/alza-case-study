@@ -5,7 +5,7 @@ using Asp.Versioning;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AlzaProductAPI.Controllers;
+namespace AlzaProductAPI.Controllers.v1;
 
 [ApiController]
 [ApiVersion("1.0")]
