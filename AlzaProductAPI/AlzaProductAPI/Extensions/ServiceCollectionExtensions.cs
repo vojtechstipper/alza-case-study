@@ -2,7 +2,9 @@
 using AlzaProduct.Domain.Entities.Products;
 using AlzaProduct.Infrastructure;
 using AlzaProduct.Infrastructure.Repositories;
+using Asp.Versioning;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 namespace AlzaProductAPI.Extensions;
 
@@ -21,6 +23,40 @@ public static class ServiceCollectionExtensions
     {
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IProductRepository, ProductRepository>();
+        return services;
+    }
+
+    public static IServiceCollection AddAndConfigureSwagger(this IServiceCollection services)
+    {
+        services.AddSwaggerGen(c =>
+        {
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Alza Product API - V1", Version = "v1.0" });
+            c.SwaggerDoc("v2", new OpenApiInfo { Title = "Alza Product API - V2", Version = "v2.0" });
+        });
+
+        services.ConfigureSwaggerGen(options => options.CustomSchemaIds(x => x.FullName));
+
+        return services;
+    }
+
+    public static IServiceCollection AddControllersAndVersioning(this IServiceCollection services)
+    {
+        services.AddApiVersioning(options =>
+        {
+            options.DefaultApiVersion = new ApiVersion(1, 0);
+            options.AssumeDefaultVersionWhenUnspecified = true;
+            options.ReportApiVersions = true;
+            options.ApiVersionReader = ApiVersionReader.Combine(
+                new UrlSegmentApiVersionReader(),
+                new HeaderApiVersionReader("X-Api-Version")
+            );
+        }).AddApiExplorer(options =>
+        {
+            options.GroupNameFormat = "'v'VVV";
+            options.SubstituteApiVersionInUrl = true;
+        });
+        services.AddControllers();
+        services.AddEndpointsApiExplorer();
         return services;
     }
 }

@@ -12,4 +12,16 @@ public static class WebApplicationExtensions
 
         return app;
     }
+
+    public static WebApplication UseDevelopment(this WebApplication app)
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Alza Product API - V1");
+            c.SwaggerEndpoint("/swagger/v2/swagger.json", "Alza Product API - V2");
+        });
+
+        return app;
+    }
 }
