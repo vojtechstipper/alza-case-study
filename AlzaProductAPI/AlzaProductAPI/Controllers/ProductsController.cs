@@ -10,8 +10,17 @@ namespace AlzaProductAPI.Controllers;
 public class ProductsController(IMediator mediator) : ControllerBase
 {
     [HttpGet]
+    [ProducesResponseType<List<ProductDto>>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<ActionResult<List<ProductDto>>> GetProducts()
     {
-        return await mediator.Send(new GetAllProductsQuery());
+        var products = await mediator.Send(new GetAllProductsQuery());
+
+        if (products == null || products.Count == 0)
+        {
+            return NoContent();
+        }
+
+        return Ok(products);
     }
 }
