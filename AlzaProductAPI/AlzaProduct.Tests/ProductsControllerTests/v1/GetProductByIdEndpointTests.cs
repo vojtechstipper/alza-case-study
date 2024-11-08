@@ -20,7 +20,6 @@ public class GetProductByIdEndpointTests
 
     public GetProductByIdEndpointTests()
     {
-
         _mockMediator = new Mock<IMediator>();
         _controller = new ProductsController(_mockMediator.Object);
         _productRepository = new Mock<IRepository<Product>>();
@@ -32,6 +31,7 @@ public class GetProductByIdEndpointTests
     {
         var product = new Product { ImgUri = "", Name = "Test Product", Price = 10.0M };
         var productId = product.Id;
+
         _mockMediator
             .Setup(m => m.Send(It.Is<GetProductByIdQuery>(q => q.Id == productId), It.IsAny<CancellationToken>()))
             .ReturnsAsync(new ProductDto { Id = productId, ImgUri = product.ImgUri, Name = product.Name, Price = product.Price });

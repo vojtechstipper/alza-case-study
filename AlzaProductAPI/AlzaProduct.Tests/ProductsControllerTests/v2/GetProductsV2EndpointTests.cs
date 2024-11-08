@@ -1,34 +1,26 @@
-﻿using AlzaProduct.Abstractions;
-using AlzaProduct.Application.Products.DTOs;
+﻿using AlzaProduct.Application.Products.DTOs;
 using AlzaProduct.Application.Products.Queries;
 using AlzaProduct.Application.Products.Queries.Validators;
 using AlzaProduct.Domain.Entities.Products;
 using AlzaProductAPI.Controllers.v2;
-using AutoMapper;
 using FluentValidation.TestHelper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 
-namespace AlzaProduct.Tests.ProductsControllerTests.v1;
+namespace AlzaProduct.Tests.ProductsControllerTests.v2;
 
 public class GetProductsV2EndpointTests
 {
     private readonly Mock<IMediator> _mockMediator;
-    private readonly Mock<IRepository<Product>> _productRepository;
-    private readonly Mock<IMapper> _mapper;
     private readonly ProductsController _controller;
     private readonly GetPaginatedProductsQueryValidator _validator;
 
     public GetProductsV2EndpointTests()
     {
-
         _mockMediator = new Mock<IMediator>();
         _controller = new ProductsController(_mockMediator.Object);
-        _productRepository = new Mock<IRepository<Product>>();
-        _mapper = new Mock<IMapper>();
         _validator = new GetPaginatedProductsQueryValidator();
-
     }
 
     [Fact]
@@ -41,14 +33,14 @@ public class GetProductsV2EndpointTests
             .Setup(m => m.Send(It.IsAny<GetPaginatedProductsQuery>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(new PaginatedList<ProductDto>()
             {
-                Items = new List<ProductDto> {
-                    new ProductDto {
+                Items = [
+                    new() {
                         Id = productId,
                         ImgUri = product.ImgUri,
                         Name = product.Name,
                         Price = product.Price
                     }
-                }
+                ]
             });
 
         var result = await _controller.GetProductsPaginated(new GetPaginatedProductsQuery());
