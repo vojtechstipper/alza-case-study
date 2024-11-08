@@ -5,7 +5,7 @@ namespace AlzaProduct.Infrastructure.Repositories;
 
 public class Repository<T> : IRepository<T> where T : Entity
 {
-    private readonly AlzaDbContext _context;
+    protected readonly AlzaDbContext _context;
     private readonly DbSet<T> _dbSet;
 
     public Repository(AlzaDbContext context)

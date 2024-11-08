@@ -1,8 +1,8 @@
 ﻿using AlzaProduct.Abstractions;
+using AlzaProduct.Domain.Entities.Products;
 using AlzaProduct.Infrastructure;
 using AlzaProduct.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 
 namespace AlzaProductAPI.Extensions;
 
@@ -20,6 +20,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddRepositories(this IServiceCollection services)
     {
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+        services.AddScoped<IProductRepository, ProductRepository>();
         return services;
     }
 }
