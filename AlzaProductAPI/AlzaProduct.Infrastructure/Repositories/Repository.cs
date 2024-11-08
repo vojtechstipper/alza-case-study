@@ -3,16 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AlzaProduct.Infrastructure.Repositories;
 
-public class Repository<T> : IRepository<T> where T : Entity
+public class Repository<T>(AlzaDbContext context) : IRepository<T> where T : Entity
 {
-    protected readonly AlzaDbContext _context;
-    private readonly DbSet<T> _dbSet;
-
-    public Repository(AlzaDbContext context)
-    {
-        _context = context;
-        _dbSet = context.Set<T>();
-    }
+    protected readonly AlzaDbContext _context = context;
+    private readonly DbSet<T> _dbSet = context.Set<T>();
 
     public async Task AddAsync(T entity)
     {
