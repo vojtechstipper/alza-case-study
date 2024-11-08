@@ -22,11 +22,4 @@ public static class ServiceCollectionExtensions
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         return services;
     }
-
-    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
-    {
-        services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-
-        return services;
-    }
 }

@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AlzaProduct.Application\AlzaProduct.Application.csproj" />
     <ProjectReference Include="..\AlzaProduct.Infrastructure\AlzaProduct.Infrastructure.csproj" />
   </ItemGroup>
 
