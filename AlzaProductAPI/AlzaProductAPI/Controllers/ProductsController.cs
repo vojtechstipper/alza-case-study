@@ -26,7 +26,7 @@ public class ProductsController(IMediator mediator) : ControllerBase
     }
 
     [HttpGet("{id}")]
-    [ProducesResponseType<List<ProductDto>>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProductDto>(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ProductDto>> GetProductById([FromRoute] GetProductByIdQuery query)
     {
@@ -34,7 +34,7 @@ public class ProductsController(IMediator mediator) : ControllerBase
     }
 
     [HttpPut("{id}/description")]
-    [ProducesResponseType<List<ProductDto>>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProductDto>(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ProductDto>> EditProductDescription([FromRoute] string id, [FromBody] EditProductDescriptionCommand command)
     {
