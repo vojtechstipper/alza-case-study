@@ -23,4 +23,12 @@ public class ProductsController(IMediator mediator) : ControllerBase
 
         return Ok(products);
     }
+
+    [HttpGet("{id}")]
+    [ProducesResponseType<List<ProductDto>>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<ProductDto>> GetProductById([FromRoute] GetProductByIdQuery query)
+    {
+        return Ok(await mediator.Send(query));
+    }
 }
