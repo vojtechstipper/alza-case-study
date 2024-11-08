@@ -1,15 +1,18 @@
 ﻿using AlzaProduct.Application.Products.Commands;
 using AlzaProduct.Application.Products.DTOs;
 using AlzaProduct.Application.Products.Queries;
+using Asp.Versioning;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AlzaProductAPI.Controllers;
+namespace AlzaProductAPI.Controllers.v1;
 
 [ApiController]
-[Route("[controller]")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
 public class ProductsController(IMediator mediator) : ControllerBase
 {
+    [MapToApiVersion("1.0")]
     [HttpGet]
     [ProducesResponseType<List<ProductDto>>(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
