@@ -1,4 +1,5 @@
-﻿using AlzaProduct.Application.Products.DTOs;
+﻿using AlzaProduct.Application.Products.Commands;
+using AlzaProduct.Application.Products.DTOs;
 using AlzaProduct.Application.Products.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -30,5 +31,14 @@ public class ProductsController(IMediator mediator) : ControllerBase
     public async Task<ActionResult<ProductDto>> GetProductById([FromRoute] GetProductByIdQuery query)
     {
         return Ok(await mediator.Send(query));
+    }
+
+    [HttpPut("{id}/description")]
+    [ProducesResponseType<List<ProductDto>>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<ProductDto>> EditProductDescription([FromRoute] string id, [FromBody] EditProductDescriptionCommand command)
+    {
+        command.Id = id;
+        return Ok(await mediator.Send(command));
     }
 }
