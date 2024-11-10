@@ -4,6 +4,8 @@ Case study for Alza interview
 ## About the project
 - The project uses MSSQL db which can be run via Docker container.
 - The db will be automatically migrated and seeded with data after first run.
+- CQRS
+- Repository pattern
 - Used ports: http - 5170, https - 7099
 
 # Prerequisites
