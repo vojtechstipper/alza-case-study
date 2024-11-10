@@ -9,6 +9,7 @@ namespace AlzaProductAPI.Controllers.v1;
 
 [ApiController]
 [ApiVersion("1.0")]
+[Produces("application/json")]
 [Route("api/v{version:apiVersion}/[controller]")]
 public class ProductsController(IMediator mediator) : ControllerBase
 {
