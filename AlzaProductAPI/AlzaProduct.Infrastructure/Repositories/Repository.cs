@@ -8,9 +8,9 @@ public class Repository<T>(AlzaDbContext context) : IRepository<T> where T : Ent
     protected readonly AlzaDbContext _context = context;
     private readonly DbSet<T> _dbSet = context.Set<T>();
 
-    public async Task AddAsync(T entity)
+    public void Add(T entity)
     {
-        await _dbSet.AddAsync(entity);
+        _dbSet.Add(entity);
     }
 
     public void Delete(T entity)
